@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TodoComponent } from './todo/todo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { appReducers } from './app.reducers';
+import {APP_BASE_HREF} from '@angular/common';  
 
 @NgModule({
   declarations: [		
@@ -40,7 +41,7 @@ import { appReducers } from './app.reducers';
     }),
   ],
   exports: [FilterPipe],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
