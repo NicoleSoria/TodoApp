@@ -1,0 +1,23 @@
+<li [ngClass]="{'completed': todo.completado, 
+                'editing': editando}">
+  <div class="view">
+
+    <input class="toggle" 
+          type="checkbox" 
+          [checked]= todo.completado
+          [formControl]="chkField">
+
+    <label (dblclick)="editar()">
+          {{todo.texto | titlecase }}
+    </label>
+
+    <button class="destroy" (click)="eliminar()"></button>
+
+  </div>
+  <input class="edit" [value]="todo.texto"
+          [formControl]="txtInput"
+          #txtInputEditar
+          (blur)="terminarEdicion()"
+          (keyup.enter)="terminarEdicion()">
+          
+</li>
